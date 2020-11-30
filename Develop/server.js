@@ -23,8 +23,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 }); // Following initial setup in seed.js
 
 // Routes
-app.use(require("./routes/html-routes.js"));
-app.use(require("./routes/api-routes.js"));
+app.use(require("./routes/view.js"));
+app.use(require("./routes/api.js"));
 
 // Initiate server
 app.listen(PORT, () => {
