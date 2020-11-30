@@ -17,10 +17,15 @@ app.use(express.static("public"));
 
 // Mongoose connect (workout database)
 // https://mongoosejs.com/docs/deprecations.html
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-}); // Following initial setup in seed.js
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/evening-dawn-30566",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 // Routes
 app.use(require("./routes/view.js"));
