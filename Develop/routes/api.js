@@ -1,7 +1,7 @@
 // Dependencies
 const router = require("express").Router();
 
-const Workout = require("../models/workout.js");
+const Workout = require("../models/Workout.js");
 
 // We need CRUD to manipulate schema requirements (POSTs, GETs, PUTs, DELETEs). Looking through api.js, stats.js and workout.js in the public folder, we establish endpoints of our API routes:
 
@@ -10,6 +10,7 @@ const Workout = require("../models/workout.js");
 router.post("/api/workouts", (req, res) => {
   Workout.create({})
     .then((dbWorkout) => {
+      console.log(dbWorkouts);
       res.json(dbWorkout);
     })
     .catch((err) => {
@@ -21,6 +22,7 @@ router.post("/api/workouts", (req, res) => {
 router.get("/api/workouts", (req, res) => {
   Workout.find()
     .then((dbWorkouts) => {
+      console.log(dbWorkouts);
       res.json(dbWorkouts);
     })
     .catch((err) => {
@@ -64,6 +66,7 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
     { new: true, runValidators: true }
   )
     .then((dbWorkout) => {
+      console.log(dbWorkouts);
       res.json(dbWorkout);
     })
     .catch((err) => {

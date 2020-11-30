@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 
 const WorkoutSchema = new Schema(
   {
-    date: {
+    // I want to be able to log multiple exercises in a workout on a given day {object}.
+    day: {
       type: Date,
       default: () => new Date(),
     },
+    // I should also be able to track the name, type, weight, sets, reps, and duration of exercise [array].
     exercises: [
       {
         // name
@@ -48,12 +50,12 @@ const WorkoutSchema = new Schema(
     },
   }
 );
-WorkoutSchema.virtual("totalDuration").get(function () {
+
+schemaForWorkouts.virtual("totalDuration").get(function () {
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
   }, 0);
 });
-
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
