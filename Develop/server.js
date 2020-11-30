@@ -18,7 +18,7 @@ app.use(express.static("public"));
 // Mongoose connect (workout database)
 // https://mongoosejs.com/docs/deprecations.html
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/evening-dawn-30566",
+  process.env.MONGODB_URI || "mongodb://localhost/evening-dawn",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
